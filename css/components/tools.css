@@ -1,0 +1,35 @@
+.tools {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.tools-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+  gap: 1.6rem 0.6rem;
+  position: relative;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.6rem 1rem;
+  place-items: center;
+}
+.tools-title {
+  position: absolute;
+  top: -0.6rem;
+  content: attr(data-title);
+  color: white;
+  background-color: black;
+  border-radius: 5rem;
+  padding: 0.2rem 0.6rem;
+  font-weight: 500;
+  font-size: 0.5rem;
+  text-align: center;
+}
+.tools-block img {
+  width: 1.8em;
+  height: 1.8em;
+}
+@media screen and (max-width: 580px) {
+  .tools {
+    grid-column: 1/3;
+  }
+}

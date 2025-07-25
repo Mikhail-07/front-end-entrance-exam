@@ -1,13 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>My CV</title>
+    <link rel="stylesheet" href="./css/components/reset.css" />
+    <link rel="stylesheet" href="./css/components/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
+
   <body>
-    <div id="app"></div>
+    <div id="downloadResume">Скачать PDF</div>
+    <main id="resume">
+      <div class="avatar">
+        <img src="/profile.png" alt="Profile photo of Graham Hunt" />
+      </div>
+      <div class="intro">
+        <h1>Hello 👋🏻 I’m</h1>
+        <div class="info">
+          <h2 contenteditable="true" id="name">Graham Hunt</h2>
+          <p contenteditable="true" id="job">Brand/Logo Designer</p>
+        </div>
+      </div>
+      <div class="languages"></div>
+      <div class="education"></div>
+      <div class="interests"></div>
+      <div class="contacts">
+        <h4 contenteditable="true" id="contactsTitle">
+          Let's chat! I'm ready to work on exciting projects
+        </h4>
+        <p contenteditable="true" id="contacts">
+          lma6490544@gmail.com
+          <span class="separator">|</span> +34&nbsp;666&nbsp;666&nbsp;666
+        </p>
+      </div>
+      <div class="tools"></div>
+      <div class="experience"></div>
+    </main>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

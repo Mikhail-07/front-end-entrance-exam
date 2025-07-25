@@ -1,22 +1,15 @@
 import { downloadPDF } from "./downloadButton.js"
-import { renderEducation } from "./components/Education.js"
-import { renderExperience } from "./components/Experience.js"
-import { renderLanguages } from "./components/Languages.js"
-import { renderInterests } from "./components/Interests.js"
-import { renderTools } from "./components/Tools.js"
+import { renderEducation } from "./Education.js"
+import { renderExperience } from "./Experience.js"
+import { renderLanguages } from "./Languages.js"
+import { renderInterests } from "./Interests.js"
+import { renderTools } from "./Tools.js"
+import { attachRippleEffect } from "../utils/ripple.js"
+import { saveOnBlur, loadFromLocalStorage } from "../utils/storage.js"
 
 document
   .querySelector("#downloadResume")
   .addEventListener("click", () => downloadPDF())
-
-const handleBlur = (event) => {
-  localStorage.setItem(event.target.id, event.target.innerHTML)
-  event.target.classList.add("saved-flash")
-  event.target.addEventListener("animationend", function handler() {
-    event.target.classList.remove("saved-flash")
-    event.target.removeEventListener("animationend", handler)
-  })
-}
 
 const educationList = [
   {
@@ -129,47 +122,30 @@ const toolsList = [
   },
 ]
 
-document.addEventListener("DOMContentLoaded", () => {
-  const educationContainer = document.querySelector(".education")
+window.addEventListener("DOMContentLoaded", () => {
+  const educationContainer = document.getElementById("education-block")
   if (educationContainer) {
     renderEducation(educationContainer, educationList)
   }
-  const experienceContainer = document.querySelector(".experience")
+  document.querySelectorAll("[contenteditable]").forEach((element) => {
+    saveOnBlur(element)
+    attachRippleEffect(element)
+  })
+  loadFromLocalStorage()
+  const experienceContainer = document.getElementById("experience-block")
   if (experienceContainer) {
     renderExperience(experienceContainer, experienceList)
   }
-  const languagesContainer = document.querySelector(".languages")
+  const languagesContainer = document.getElementById("languages-block")
   if (languagesContainer) {
     renderLanguages(languagesContainer, languagesList)
   }
-  const interestsContainer = document.querySelector(".interests")
+  const interestsContainer = document.getElementById("interests-block")
   if (interestsContainer) {
     renderInterests(interestsContainer, interestsList)
   }
-  const toolsContainer = document.querySelector(".tools")
+  const toolsContainer = document.getElementById("tools-block")
   if (toolsContainer) {
     renderTools(toolsContainer, toolsList)
   }
-  document.querySelectorAll("[contenteditable]").forEach((element) => {
-    element.addEventListener("blur", handleBlur)
-    element.addEventListener("click", function (e) {
-      const ripple = document.createElement("span")
-      ripple.classList.add("ripple-effect")
-      this.appendChild(ripple)
-      const rect = this.getBoundingClientRect()
-      const size = Math.max(rect.width, rect.height)
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      ripple.style.width = ripple.style.height = `${size}px`
-      ripple.style.left = `${x - size / 2}px`
-      ripple.style.top = `${y - size / 2}px`
-      ripple.addEventListener("animationend", () => ripple.remove())
-    })
-  })
-  const loadFromLocalStorage = () => {
-    document.querySelectorAll("[contenteditable]").forEach((element) => {
-      element.innerHTML = localStorage.getItem(element.id) || element.innerHTML
-    })
-  }
-  loadFromLocalStorage()
 })

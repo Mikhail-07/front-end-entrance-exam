@@ -1,0 +1,21 @@
+.interests {
+  grid-column: 3/5;
+}
+.badges {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+}
+.badges li {
+  background-color: white;
+  border-radius: 4rem;
+  padding: 0.4rem 1rem;
+}
+@media screen and (max-width: 580px) {
+  .interests {
+    grid-column: 1/3;
+  }
+}
