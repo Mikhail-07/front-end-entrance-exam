@@ -102,29 +102,29 @@ const toolsList = [
   {
     title: "design",
     icons: [
-      { src: "./public/figma.svg", alt: "figma" },
-      { src: "./public/creativecloud.svg", alt: "creativecloud" },
-      { src: "./public/miro.svg", alt: "miro" },
-      { src: "./public/notion.svg", alt: "notion" },
-      { src: "./public/meet.svg", alt: "meet" },
-      { src: "./public/analytics.svg", alt: "analytics" },
+      { src: "public/figma.svg", alt: "figma" },
+      { src: "public/creativecloud.svg", alt: "creativecloud" },
+      { src: "public/miro.svg", alt: "miro" },
+      { src: "public/notion.svg", alt: "notion" },
+      { src: "public/meet.svg", alt: "meet" },
+      { src: "public/analytics.svg", alt: "analytics" },
     ],
   },
   {
     title: "no-code",
     icons: [
-      { src: "./public/zapier.svg", alt: "zapier" },
-      { src: "./public/webflow.svg", alt: "webflow" },
-      { src: "./public/framer.svg", alt: "framer" },
-      { src: "./public/wordpress.svg", alt: "wordpress" },
+      { src: "public/zapier.svg", alt: "zapier" },
+      { src: "public/webflow.svg", alt: "webflow" },
+      { src: "public/framer.svg", alt: "framer" },
+      { src: "public/wordpress.svg", alt: "wordpress" },
     ],
   },
   {
     title: "artificial intelligence",
     icons: [
-      { src: "./public/chatgpt.svg", alt: "chatgpt" },
-      { src: "./public/copilot.svg", alt: "copilot" },
-      { src: "./public/midjourney.svg", alt: "midjourney" },
+      { src: "public/chatgpt.svg", alt: "chatgpt" },
+      { src: "public/copilot.svg", alt: "copilot" },
+      { src: "public/midjourney.svg", alt: "midjourney" },
     ],
   },
 ]
